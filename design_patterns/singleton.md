@@ -96,7 +96,7 @@ class Db
 
 }
 
+// 使用
 $db = DB::getInstance();
-
 $list = $db->select('test', array('name' => 'tom', 'password' => 'ds'), array('name', 'password'));
 ```
