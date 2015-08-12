@@ -4,3 +4,4 @@
  - [简单工厂模式 - Factory.md](Factory.md)
  - [单例模式 - Singleton.md](Singleton.md)
  - [观察者模式 - Observer.md](Observer.md)
+ - [策略模式 - Strategy.md](Strategy.md)
