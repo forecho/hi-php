@@ -21,7 +21,7 @@ interface IStrategy
 }
 
 /**
- * 某之后的单词
+ * 某字母之后的结果
  * Class FindAfterStrategy
  */
 class FindAfterStrategy implements IStrategy
@@ -49,6 +49,32 @@ class RandomStrategy implements IStrategy
     public function filter($record)
     {
         return rand(0, 1) <= 0.5;
+    }
+}
+
+/**
+ * 包含某字母的结果
+ * Class FindNameWith
+ */
+class FindNameWith implements IStrategy
+{
+    /**
+     * @var 小写字母
+     */
+    private $_alphabet;
+
+    public function __construct($alphabet)
+    {
+        $this->_alphabet = $alphabet;
+    }
+
+    public function filter($record)
+    {
+        $record = strtolower($record);
+        if (strpos($record, $this->_alphabet) !== false) {
+            return true;
+        }
+        return false;
     }
 }
 
@@ -90,4 +116,7 @@ print_r($find1);
 
 $find2 = $userList->find(new RandomStrategy());
 print_r($find2);
+
+$find3 = $userList->find(new FindNameWith('a'));
+print_r($find3);
 ```
